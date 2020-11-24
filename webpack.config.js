@@ -22,6 +22,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: './',
   },
   devtool: 'inline-source-map',
   module: {
@@ -51,17 +52,7 @@ const config = {
       },
       {
         test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              data: '@import "src/styles/abstracts/_variables.scss";',
-              includePaths: [__dirname, 'src'],
-            },
-          },
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(woff(2)?|ttf|eot|jpg|png|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -77,9 +68,9 @@ const config = {
     ],
   },
   plugins: [
-    new CopyPlugin({
-      patterns: [{ from: 'public/index.html' }],
-    }),
+    // new CopyPlugin({
+    //   patterns: [{ from: 'public/index.html' }],
+    // }),
     new HtmlWebpackPlugin({
       appMountId: 'app',
       filename: 'index.html',
@@ -91,8 +82,8 @@ const config = {
       ...finalConfig,
     }),
     new MiniCssExtractPlugin(),
-    new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin({}),
+    // new CleanWebpackPlugin(),
+    //new webpack.HotModuleReplacementPlugin({}),
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],

@@ -15,10 +15,8 @@
 </head>
 <body>
 <% if(renderPlaceholders === "true") { %>%header% <% } %>
-    <main>
-        <% if(environment === 'desktop') { %><%= require('html-loader!../src/platforms/desktop.html') %><% } %>
-        <% if(environment === 'mobile') { %><%= require('html-loader!../src/platforms/mobile.html') %><% } %>
-    </main>
+<% if(environment === 'desktop') { %><%= require('html-loader!../src/platforms/desktop.html') %><% } %>
+<% if(environment === 'mobile') { %><%= require('html-loader!../src/platforms/mobile.html') %><% } %>
 <% if(renderPlaceholders === "true") { %>%footer% %javascripts% <% } %>
 
 <%
@@ -27,18 +25,6 @@ for (item of htmlWebpackPlugin.options.scripts) { %><%
 if (typeof item === 'string' || item instanceof String) { item = { src: item, type: 'text/javascript' } } %>
 <script<% for (key in item) { %> <%= key %>="<%= item[key] %>"<% } %>></script><%
 } %>
-<%
 
-for (key in htmlWebpackPlugin.files.chunks) { %><%
-    if (htmlWebpackPlugin.files.jsIntegrity) { %>
-    <script
-        src="<%= htmlWebpackPlugin.files.chunks[key].entry %>"
-        type="text/javascript"
-        integrity="<%= htmlWebpackPlugin.files.jsIntegrity[htmlWebpackPlugin.files.js.indexOf(htmlWebpackPlugin.files.chunks[key].entry)] %>"
-        crossorigin="<%= webpackConfig.output.crossOriginLoading %>"></script><%
-} else { %>
-<%
-} %><%
-} %>
 </body>
 </html>
