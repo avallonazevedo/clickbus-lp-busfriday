@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="891b22ba-f78d-4217-8dee-46576b5a01cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/busfriday.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/busfriday.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/app.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/platforms/mobile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/platforms/mobile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/abstracts/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/abstracts/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/app/_lp.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/app/_lp.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +84,7 @@
       <workItem from="1606228113921" duration="1091000" />
       <workItem from="1606230308245" duration="759000" />
       <workItem from="1606231097084" duration="1329000" />
-      <workItem from="1606232473902" duration="16814000" />
+      <workItem from="1606232473902" duration="18920000" />
     </task>
     <servers />
   </component>
@@ -103,9 +96,9 @@
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
     <state x="2149" y="190" key="SettingsEditor/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606230934005" />
-    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup" timestamp="1606248382594">
+    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup" timestamp="1606251246968">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606248382594" />
+    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606251246968" />
   </component>
 </project>
