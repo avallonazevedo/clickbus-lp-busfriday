@@ -1,16 +1,19 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
-        "sourceMap": true,
+        "allowJs": false,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./src",
         "strict": true,
-        "noImplicitReturns": true,
-        "noImplicitAny": true,
-        "module": "es6",
-        "moduleResolution": "node",
-        "target": "es5",
-        "allowJs": true,
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "target": "ES2015",
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "outDir": "./dist",
+        "noUnusedParameters": true,
+        "lib": ["DOM", "ESNext"]
     },
-    "include": [
-        "./src/**/*"
-    ]
+    "include": ["src"],
+    "exclude": ["node_modules"]
 }

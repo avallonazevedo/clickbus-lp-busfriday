@@ -45,20 +45,16 @@ const config = {
         ]
       },
       {
-        test: /\.svg$/,
-        use: 'file-loader'
-      },
-      {
-        test: /\.png$/,
+        test: /\.(woff(2)?|ttf|eot|jpg|png|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
-              mimetype: 'image/png'
-            }
-          }
-        ]
-      }
+              name: '[path][name].[ext]',
+            },
+          },
+        ],
+      },
     ]
   },
   plugins: [
@@ -67,7 +63,8 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       appMountId: 'app',
-      filename: 'index.html'
+      filename: 'index.html',
+      template: path.resolve(__dirname, './public/index.html')
     }),
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin()
