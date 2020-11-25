@@ -1,28 +1,32 @@
 // Main CSS
 import './styles/app.scss';
+import CardOffers from './components/CardOffers';
+import {
+  isProduction,
+  accordionTitles,
+  backToTop,
+  closeFilterOptionsWrapper,
+  filterOptionsWrapper,
+  openFilterOptionsWrapper,
+  body,
+  routesPrices,
+  maskModals,
+  okButton,
+  modalDates,
+  landingPageContent,
+} from './constants';
+import { Routes } from './types';
 
-// Constants
-const isProduction = process.env.NODE_ENV;
-const landingPageContent = document.getElementById(
-  'clickbus-landing-page-wrapper',
-);
-const accordionTitles = document.querySelectorAll(
-  '.bf-accordion-title',
-) as NodeListOf<Element>;
-const backToTop = document.querySelector('.bf-go-to-top');
-const filterOptionsWrapper = document.getElementById('bf-filter-options');
-const closeFilterOptionsWrapper = document.querySelector('.bf-return');
-const openFilterOptionsWrapper = document.getElementById('bf-origin-select');
-const body = document.querySelector('body') as HTMLBodyElement;
-const routesPrices = document.querySelectorAll('.bf-prices-and-dates');
-const maskModals = document.getElementById('bf-mask-modal');
-const modalDates = document.getElementById('bf-modal-dates');
-const okButton = modalDates?.querySelector('button');
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const allRoutes = routes as Routes;
+const origins = allRoutes.map((route) => route.origin);
 
 const runLandingPageApplication = () => {
-  if (isProduction) console.log('Application running');
+  if (!isProduction) console.log('Application running...');
 
-  // document.body.classList.add('no-navigation-enabled');
+  // Card Offers
+  new CardOffers({ routes: allRoutes, origins });
 
   // Accordions
   accordionTitles.forEach((title) => {
@@ -54,19 +58,21 @@ const runLandingPageApplication = () => {
   });
 
   // Open Modals
-  routesPrices?.forEach((route) => {
-    route.querySelector('button')?.addEventListener('click', (e) => {
-      e.preventDefault();
-      maskModals?.classList.add('bf-active');
-      modalDates?.classList.add('bf-active');
-    });
-  });
+  // routesPrices?.forEach((route) => {
+  //   route.querySelector('button')?.addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     maskModals?.classList.add('bf-active');
+  //     modalDates?.classList.add('bf-active');
+  //     body.classList.add('no-navigation-enabled');
+  //   });
+  // });
 
   // Close Modals
   okButton?.addEventListener('click', (e) => {
     e.preventDefault();
     maskModals?.classList.remove('bf-active');
     modalDates?.classList.remove('bf-active');
+    body.classList.remove('no-navigation-enabled');
   });
 };
 

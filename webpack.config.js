@@ -13,6 +13,10 @@ const isProduction = nodeEnv === 'production';
 const environment = process.env.CB_ENVIRONMENT;
 const port = environment === 'desktop' ? 5000 : 5001;
 
+const publicPath = isProduction
+  ? 'https://static.clickbus.com/live/ClickBus/campanhas/busfriday/'
+  : './';
+
 const finalConfig = !isProduction
   ? generateDevHTMLWebpackAssets(LPConfig)
   : LPConfig;
@@ -21,8 +25,8 @@ const config = {
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: './',
+    filename: 'clickbus.lp.bundle.js',
+    publicPath,
   },
   devtool: 'inline-source-map',
   module: {
@@ -75,13 +79,16 @@ const config = {
       appMountId: 'app',
       filename: 'index.html',
       template: path.resolve(__dirname, './public/index.html'),
+      minify: false,
       templateParameters: {
         environment,
         renderPlaceholders: JSON.stringify(isProduction),
       },
       ...finalConfig,
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'clickbus.lp.style.css',
+    }),
     // new CleanWebpackPlugin(),
     //new webpack.HotModuleReplacementPlugin({}),
   ],

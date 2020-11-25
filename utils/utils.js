@@ -38,9 +38,20 @@ const mobileAssets = {
 
 const generateDevHTMLWebpackAssets = (config) => {
   const environment = process.env.CB_ENVIRONMENT;
-  return environment === 'desktop'
-    ? merge(config, desktopAssets)
-    : merge(config, mobileAssets);
+  const final =
+    environment === 'desktop'
+      ? {
+          ...config,
+          links: [...config.links, ...desktopAssets.links],
+          scripts: [...config.scripts, ...desktopAssets.scripts],
+        }
+      : {
+          ...config,
+          links: [...config.links, ...mobileAssets.links],
+          scripts: [...config.scripts, ...mobileAssets.scripts],
+        };
+  console.log(final);
+  return final;
 };
 
 module.exports = generateDevHTMLWebpackAssets;

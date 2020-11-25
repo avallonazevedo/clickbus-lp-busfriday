@@ -8,6 +8,7 @@
     <link rel="icon" href="https://static.clickbus.com/live/ClickBus/favicon-purple-16x16.png" sizes="16x16">
     <link rel="icon" href="https://static.clickbus.com/live/ClickBus/favicon-purple-32x32.png" sizes="32x32">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <% if(renderPlaceholders === "true") { %>%stylesheets% <% } %>
     <% for (item of htmlWebpackPlugin.options.links) { %><%
     if (typeof item === 'string' || item instanceof String) { item = { href: item, rel: 'stylesheet' } } %>
     <link<% for (key in item) { %> <%= key %>="<%= item[key] %>"<% } %> /><%
