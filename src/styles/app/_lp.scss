@@ -106,11 +106,22 @@ body {
   text-align: right;
 }
 
+.bf-custom-select {
+  position: relative;
+  i {
+    position: absolute;
+    right: 0;
+    top: 0.1em;
+    pointer-events: none;
+    font-size: 6vw;
+  }
+}
+
 #bf-sort {
   display: block !important;
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
-  padding: 0;
+  padding: 0 1.5em 0 0;
   background-color: transparent;
   color: $white;
   border: 0;
