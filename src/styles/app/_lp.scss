@@ -444,6 +444,7 @@ body {
   h3 {
     font-weight: 500;
     margin-top: 0;
+    font-size: 6vw;
     span {
       display: block;
     }
@@ -491,14 +492,4 @@ body {
     top: 0.4em;
   }
 
-}
-
-@media only screen and (max-width: 359px) {
-  #bf-modal-dates {
-    table {
-      td, th {
-        font-size: 0.9em;
-      }
-    }
-  }
 }
