@@ -238,6 +238,7 @@ body {
 
   &.bf-active {
     max-height: 10000px;
+    border-bottom: 1px solid $grey;
   }
 
   *:first-child {
