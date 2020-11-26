@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="891b22ba-f78d-4217-8dee-46576b5a01cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CardOffers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardOffers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/platforms/mobile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/platforms/mobile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/app/_lp.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/app/_lp.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +100,7 @@
       <workItem from="1606232473902" duration="31079000" />
       <workItem from="1606297101293" duration="14451000" />
       <workItem from="1606313446009" duration="11418000" />
-      <workItem from="1606413580441" duration="2910000" />
+      <workItem from="1606413580441" duration="3412000" />
     </task>
     <servers />
   </component>
@@ -127,10 +124,10 @@
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
     <state x="2305" y="256" key="run.anything.popup/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606416388153" />
-    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup" timestamp="1606415814150">
+    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup" timestamp="1606416716343">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606415814150" />
+    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606416716343" />
     <state x="547" y="251" width="670" height="657" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606323489512" />
   </component>
 </project>

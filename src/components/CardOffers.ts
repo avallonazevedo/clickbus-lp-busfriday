@@ -3,7 +3,6 @@ import slugify from 'slugify';
 import {
   CardOffersConstructor,
   CardOffersDOM,
-  Routes,
   FormattedRoutes,
   SortOptions,
 } from '../types';
@@ -20,7 +19,7 @@ import {
   selectSort,
 } from '../constants';
 import {
-  breakArrayIntoChunks,
+  sortRoutes,
   cutText,
   hideFilterOptionsWrapper,
   showModal,
@@ -37,10 +36,6 @@ export default class CardOffers {
   private currentRoutes!: FormattedRoutes;
   private origins: string[];
   private dom!: CardOffersDOM;
-  private readonly collator = new Intl.Collator('pt-BR', {
-    numeric: true,
-    sensitivity: 'base',
-  });
 
   constructor({ routes, origins }: CardOffersConstructor) {
     this.originsSelected = 0;
@@ -203,11 +198,12 @@ export default class CardOffers {
   }
 
   public sortItems(type: SortOptions): void {
-    if (type === 'default') return this.render(this.currentRoutes, false);
-    const compare = [...this.currentRoutes].sort((a, b) => {
-      return this.collator.compare(a.price, b.price);
-    });
-    const sorted = type === 'price-lower' ? compare : compare.reverse();
+    const sortBy = type === 'name' ? 'origin' : 'price';
+    const compare = [...this.currentRoutes].sort((a, b) =>
+      sortRoutes(a, b, sortBy),
+    );
+    const sorted =
+      type === 'price-lower' || type === 'name' ? compare : compare.reverse();
     this.render(sorted, false);
   }
 

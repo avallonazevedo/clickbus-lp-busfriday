@@ -5,6 +5,7 @@ import {
   maskModals,
   modalDates,
 } from '../constants';
+import { FormattedRoute, FormattedRoutes } from '../types';
 
 /**
  * Transform array into multidimensional array
@@ -86,3 +87,16 @@ export const formatCurrency = (value: number): string =>
     style: 'currency',
     currency: 'BRL',
   }).format(value);
+
+const collator = new Intl.Collator('pt-BR', {
+  numeric: true,
+  sensitivity: 'base',
+});
+
+export const sortRoutes = (
+  routeA: FormattedRoute,
+  routeB: FormattedRoute,
+  sortBy: keyof FormattedRoute,
+): number => {
+  return collator.compare(routeA[sortBy] as string, routeB[sortBy] as string);
+};

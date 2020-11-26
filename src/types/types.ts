@@ -35,4 +35,4 @@ export interface CardOffersDOM {
   showAllDatesTriggers: NodeListOf<HTMLButtonElement>;
 }
 
-export type SortOptions = 'default' | 'price-lower' | 'price-high';
+export type SortOptions = 'name' | 'price-lower' | 'price-high';
