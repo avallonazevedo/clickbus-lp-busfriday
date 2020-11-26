@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import slugify from 'slugify';
-import { CardOffersConstructor, CardOffersDOM, Routes } from '../types';
+import {
+  CardOffersConstructor,
+  CardOffersDOM,
+  Routes,
+  SortOptions,
+} from '../types';
 import {
   list,
   tableDatesBody,
@@ -15,6 +20,7 @@ import {
   body,
   results,
   titleModal,
+  selectSort,
 } from '../constants';
 
 const CHECKBOX_ALL = 'bf-all';
@@ -24,11 +30,13 @@ const hideFilterOptionsWrapper = (returnTo = false) => {
   filterOptionsWrapper?.classList.remove('bf-active');
   body.classList.remove('no-navigation-enabled');
   if (returnTo) {
-    scrollTo({
-      left: 0,
-      top: list?.offsetTop,
-      behavior: 'smooth',
-    });
+    setTimeout(() => {
+      scrollTo({
+        left: 0,
+        top: list?.offsetTop,
+        behavior: 'smooth',
+      });
+    }, 500);
   }
 };
 
@@ -51,8 +59,13 @@ export default class CardOffers {
   private readonly originsTotal: number;
   private originsSelected: number;
   private readonly routes: Routes;
+  private currentRoutes!: Routes;
   private origins: string[];
   private dom!: CardOffersDOM;
+  private readonly collator = new Intl.Collator('pt-BR', {
+    numeric: true,
+    sensitivity: 'base',
+  });
 
   constructor({ routes, origins }: CardOffersConstructor) {
     this.originsSelected = 0;
@@ -200,13 +213,25 @@ export default class CardOffers {
         tableDatesBody.innerHTML = '';
         selected.availableDates.forEach((dates) => {
           const output = `<tr>${dates
-            .map((date) => `<td>${date.date}</td>`)
+            .map(
+              (date) =>
+                `<td>${date.soldOff ? `<s>${date.date}</s>` : date.date}</td>`,
+            )
             .join('')}</tr>`;
           tableDatesBody?.insertAdjacentHTML('beforeend', output);
         });
         showModal();
       });
     });
+  }
+
+  public sortItems(type: SortOptions): void {
+    if (type === 'default') return this.render(this.currentRoutes, false);
+    const compare = [...this.currentRoutes].sort((a, b) => {
+      return this.collator.compare(a.price, b.price);
+    });
+    const sorted = type === 'price-lower' ? compare : compare.reverse();
+    this.render(sorted, false);
   }
 
   public saveItems(): void {
@@ -222,7 +247,9 @@ export default class CardOffers {
       selected.length === this.originsTotal || selected.length === 0
         ? this.routes
         : this.routes.filter((route) => selected.includes(route.origin));
+    const currentSort = selectSort.value as SortOptions;
     this.render(cards);
+    this.sortItems(currentSort);
     this.generateCurrentState(selected);
     this.generateSelectedQuantity(selected);
     hideFilterOptionsWrapper(true);
@@ -234,7 +261,8 @@ export default class CardOffers {
     });
   }
 
-  public render(currentRoutes = this.routes): void {
+  public render(currentRoutes = this.routes, update = true): void {
+    if (update) this.currentRoutes = currentRoutes;
     // @ts-ignore
     list?.innerHTML = '';
     currentRoutes.forEach((route) => {
@@ -269,5 +297,9 @@ export default class CardOffers {
       ),
     });
     this.showAllDates();
+    selectSort?.addEventListener('change', () => {
+      const value = selectSort.value as SortOptions;
+      this.sortItems(value);
+    });
   }
 }

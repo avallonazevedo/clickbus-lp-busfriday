@@ -14,7 +14,7 @@ const environment = process.env.CB_ENVIRONMENT;
 const port = environment === 'desktop' ? 5000 : 5001;
 
 const publicPath = isProduction
-  ? 'https://static.clickbus.com/live/ClickBus/campanhas/busfriday/'
+  ? 'https://static.clickbus.com/live/ClickBus/campanhas/busfriday/v1/'
   : './';
 
 const finalConfig = !isProduction

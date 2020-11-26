@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const merge = require('lodash.merge');
-
 const desktopAssets = {
   scripts: [
     'https://www.clickbus.com.br/static/js/vendors.min.js?v=1.0-639',
@@ -37,6 +34,7 @@ const mobileAssets = {
 };
 
 const generateDevHTMLWebpackAssets = (config) => {
+  console.log('Loading configuration...');
   const environment = process.env.CB_ENVIRONMENT;
   const final =
     environment === 'desktop'
@@ -50,7 +48,8 @@ const generateDevHTMLWebpackAssets = (config) => {
           links: [...config.links, ...mobileAssets.links],
           scripts: [...config.scripts, ...mobileAssets.scripts],
         };
-  console.log(final);
+  console.log('Configuration finished successfully 🚀');
+  console.debug(final);
   return final;
 };
 

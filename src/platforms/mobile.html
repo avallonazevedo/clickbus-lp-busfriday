@@ -1,6 +1,6 @@
 <main id="clickbus-landing-page-wrapper">
     <section id="bf-intro">
-        <img src="../assets/images/bus-friday-banner.jpg" alt="Bus Friday Intro">
+        <img src="../assets/images/bus-friday-banner-intro.jpg" alt="Bus Friday Intro">
     </section>
     <!-- /#bf-intro -->
 
@@ -19,7 +19,9 @@
                 <div class="bf-sort">
                     <label for="bf-sort">Ordenado por</label>
                     <select id="bf-sort" name="bf-sort">
-                        <option value="-">Mais procurados</option>
+                        <option value="default">Valor padrão</option>
+                        <option value="price-lower">Menor preço</option>
+                        <option value="price-high">Maior preço</option>
                     </select>
                 </div>
                 <!-- /.bf-sort -->
@@ -100,7 +102,7 @@
 
         <footer>
             <button type="button" id="clear-origins-options">Limpar</button>
-            <button disabled type="button" id="apply-origins-options">Aplicar</button>
+            <button disabled type="button" id="apply-origins-options">Filtrar</button>
         </footer>
 
     </section>
@@ -130,7 +132,7 @@
             </div>
             <div class="bf-alert">
                 <img src="./../assets/images/icon-info.svg" alt="Icon Information">
-                <span>Compre sua passagem com desconto pelo buscador do app ClickBus, basta pesquisar pela data promocional desejada.</span>
+                <span>Na página inicial do aplicativo insira sua origem e destino com a data promocional desejada.</span>
             </div>
             <!-- /.bf-alert -->
         </div>

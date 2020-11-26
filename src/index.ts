@@ -9,7 +9,6 @@ import {
   filterOptionsWrapper,
   openFilterOptionsWrapper,
   body,
-  routesPrices,
   maskModals,
   okButton,
   modalDates,
@@ -20,7 +19,7 @@ import { Routes } from './types';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const allRoutes = routes as Routes;
-const origins = allRoutes.map((route) => route.origin);
+const origins = [...new Set(allRoutes.map((route) => route.origin))];
 
 const runLandingPageApplication = () => {
   if (!isProduction) console.log('Application running...');
@@ -56,16 +55,6 @@ const runLandingPageApplication = () => {
     filterOptionsWrapper?.classList.add('bf-active');
     body.classList.add('no-navigation-enabled');
   });
-
-  // Open Modals
-  // routesPrices?.forEach((route) => {
-  //   route.querySelector('button')?.addEventListener('click', (e) => {
-  //     e.preventDefault();
-  //     maskModals?.classList.add('bf-active');
-  //     modalDates?.classList.add('bf-active');
-  //     body.classList.add('no-navigation-enabled');
-  //   });
-  // });
 
   // Close Modals
   okButton?.addEventListener('click', (e) => {

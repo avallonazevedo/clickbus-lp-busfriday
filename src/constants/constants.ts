@@ -29,3 +29,6 @@ export const triggerSelect = document.querySelector('#bf-origin-select span');
 export const titleModal = modalDates?.querySelector('header h3 span');
 export const tableHeadRowDates = modalDates?.querySelector('table thead tr');
 export const tableDatesBody = modalDates?.querySelector('table tbody');
+export const selectSort = document.getElementById(
+  'bf-sort',
+) as HTMLSelectElement;

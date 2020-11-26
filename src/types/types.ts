@@ -1,6 +1,7 @@
 export interface Dates {
+  id: string | number;
   date: string;
-  soldOff: boolean;
+  soldOff: string;
 }
 
 export type AvailableDates = Dates[];
@@ -27,3 +28,5 @@ export interface CardOffersDOM {
   selectedCheckbox: NodeListOf<HTMLInputElement>;
   showAllDatesTriggers: NodeListOf<HTMLButtonElement>;
 }
+
+export type SortOptions = 'default' | 'price-lower' | 'price-high';
