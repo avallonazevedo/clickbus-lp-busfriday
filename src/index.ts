@@ -6,26 +6,49 @@ import {
   accordionTitles,
   backToTop,
   closeFilterOptionsWrapper,
-  filterOptionsWrapper,
   openFilterOptionsWrapper,
-  body,
-  maskModals,
   okButton,
-  modalDates,
   landingPageContent,
 } from './constants';
 import { Routes } from './types';
+import {
+  showFilterOptionsWrapper,
+  hideModal,
+  hideFilterOptionsWrapper,
+  formatDate,
+  formatCurrency,
+  breakArrayIntoChunks,
+} from './utils';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const allRoutes = routes as Routes;
+const formattedRoutes = allRoutes.map((route) => {
+  const price = formatCurrency(route.price);
+  const splitDates = route.availableDates.split(',');
+  const formatDates = splitDates.map((date) => {
+    const isSoldOff = date.includes('E');
+    const finalDate = isSoldOff ? date.split('E')[0] : date;
+    const brazilianDate = formatDate(finalDate);
+    return {
+      date: brazilianDate,
+      soldOff: isSoldOff,
+    };
+  });
+  const rowDates = breakArrayIntoChunks(formatDates);
+  return {
+    ...route,
+    price,
+    availableDates: rowDates,
+  };
+});
 const origins = [...new Set(allRoutes.map((route) => route.origin))];
 
 const runLandingPageApplication = () => {
   if (!isProduction) console.log('Application running...');
 
   // Card Offers
-  new CardOffers({ routes: allRoutes, origins });
+  new CardOffers({ routes: formattedRoutes, origins });
 
   // Accordions
   accordionTitles.forEach((title) => {
@@ -46,22 +69,18 @@ const runLandingPageApplication = () => {
 
   // Close Wrapper
   closeFilterOptionsWrapper?.addEventListener('click', () => {
-    filterOptionsWrapper?.classList.remove('bf-active');
-    body.classList.remove('no-navigation-enabled');
+    hideFilterOptionsWrapper();
   });
 
   // Open Wrapper
   openFilterOptionsWrapper?.addEventListener('click', () => {
-    filterOptionsWrapper?.classList.add('bf-active');
-    body.classList.add('no-navigation-enabled');
+    showFilterOptionsWrapper();
   });
 
   // Close Modals
   okButton?.addEventListener('click', (e) => {
     e.preventDefault();
-    maskModals?.classList.remove('bf-active');
-    modalDates?.classList.remove('bf-active');
-    body.classList.remove('no-navigation-enabled');
+    hideModal();
   });
 };
 

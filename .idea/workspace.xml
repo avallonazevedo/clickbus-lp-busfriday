@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="891b22ba-f78d-4217-8dee-46576b5a01cd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CardOffers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardOffers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/constants.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/platforms/mobile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/platforms/mobile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/app/_lp.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/app/_lp.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +31,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/finishing" />
+                    <option name="lastUsedInstant" value="1606413623" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="feature/app" />
                     <option name="lastUsedInstant" value="1606238280" />
@@ -69,7 +69,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -79,12 +79,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettier.import.notification.dismissed" value="true" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$USER_HOME$/Desktop" />
     </key>
   </component>
@@ -102,6 +103,7 @@
       <workItem from="1606232473902" duration="31079000" />
       <workItem from="1606297101293" duration="14451000" />
       <workItem from="1606313446009" duration="11418000" />
+      <workItem from="1606413580441" duration="2910000" />
     </task>
     <servers />
   </component>
@@ -113,18 +115,22 @@
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
     <state x="2453" y="274" key="#com.intellij.ide.util.MemberChooser/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606297802464" />
-    <state x="2149" y="190" key="SettingsEditor" timestamp="1606230934005">
+    <state x="2149" y="190" key="SettingsEditor" timestamp="1606414029768">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state x="2149" y="190" key="SettingsEditor/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606230934005" />
-    <state x="2453" y="472" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606261753939">
+    <state x="2149" y="190" key="SettingsEditor/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606414029768" />
+    <state x="2453" y="472" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606415154875">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state x="2453" y="472" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606261753939" />
-    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup" timestamp="1606343108716">
+    <state x="2453" y="472" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606415154875" />
+    <state x="2305" y="256" key="run.anything.popup" timestamp="1606416388153">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606343108716" />
+    <state x="2305" y="256" key="run.anything.popup/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606416388153" />
+    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup" timestamp="1606415814150">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2305" y="258" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027/1680.23.1920.1057@1680.23.1920.1057" timestamp="1606415814150" />
     <state x="547" y="251" width="670" height="657" key="search.everywhere.popup/0.23.1680.1027@0.23.1680.1027" timestamp="1606323489512" />
   </component>
 </project>

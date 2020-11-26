@@ -11,5 +11,5 @@
     }
   ],
   "links": [],
-  "scripts": ["https://clientes.avallonazevedo.com.br/clickbus/sample5.js"]
+  "scripts": ["http://localhost:8888/routesSample.js"]
 }

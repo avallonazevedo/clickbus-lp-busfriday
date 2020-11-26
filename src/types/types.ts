@@ -1,7 +1,6 @@
 export interface Dates {
-  id: string | number;
   date: string;
-  soldOff: string;
+  soldOff: boolean;
 }
 
 export type AvailableDates = Dates[];
@@ -10,14 +9,21 @@ export interface Route {
   id: number;
   origin: string;
   destination: string;
-  price: string;
-  availableDates: Dates[][];
+  price: number;
+  availableDates: string;
 }
+
+export type FormattedRoute = Pick<Route, 'origin' | 'destination' | 'id'> & {
+  availableDates: AvailableDates[];
+  price: string;
+};
 
 export type Routes = Route[];
 
+export type FormattedRoutes = FormattedRoute[];
+
 export interface CardOffersConstructor {
-  routes: Routes;
+  routes: FormattedRoutes;
   origins: string[];
 }
 

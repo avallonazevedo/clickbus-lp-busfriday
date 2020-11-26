@@ -4,62 +4,37 @@ import {
   CardOffersConstructor,
   CardOffersDOM,
   Routes,
+  FormattedRoutes,
   SortOptions,
 } from '../types';
 import {
   list,
   tableDatesBody,
-  modalDates,
-  maskModals,
   formOrigins,
   clearOrigins,
   applyButton,
   allOrigins,
-  filterOptionsWrapper,
   triggerSelect,
-  body,
   results,
   titleModal,
   selectSort,
 } from '../constants';
+import {
+  breakArrayIntoChunks,
+  cutText,
+  hideFilterOptionsWrapper,
+  showModal,
+} from '../utils';
 
 const CHECKBOX_ALL = 'bf-all';
 const ALL = 'Todas';
 
-const hideFilterOptionsWrapper = (returnTo = false) => {
-  filterOptionsWrapper?.classList.remove('bf-active');
-  body.classList.remove('no-navigation-enabled');
-  if (returnTo) {
-    setTimeout(() => {
-      scrollTo({
-        left: 0,
-        top: list?.offsetTop,
-        behavior: 'smooth',
-      });
-    }, 500);
-  }
-};
-
-const hideModal = (): void => {
-  modalDates?.classList.remove('bf-active');
-  maskModals?.classList.remove('bf-active');
-  body.classList.remove('no-navigation-enabled');
-};
-
-const showModal = (): void => {
-  modalDates?.classList.add('bf-active');
-  maskModals?.classList.add('bf-active');
-  body.classList.add('no-navigation-enabled');
-};
-
-const cutText = (text: string): string =>
-  text.length >= 20 ? text.split(',')[0].concat(' ...') : text;
-
 export default class CardOffers {
   private readonly originsTotal: number;
   private originsSelected: number;
-  private readonly routes: Routes;
-  private currentRoutes!: Routes;
+  private totalRoutes: number;
+  private readonly routes: FormattedRoutes;
+  private currentRoutes!: FormattedRoutes;
   private origins: string[];
   private dom!: CardOffersDOM;
   private readonly collator = new Intl.Collator('pt-BR', {
@@ -72,9 +47,10 @@ export default class CardOffers {
     this.routes = routes;
     this.origins = origins;
     this.originsTotal = origins.length;
+    this.totalRoutes = routes.length;
     this.render();
     this.renderCheckbox();
-    this.generateSelectedQuantity(this.originsTotal);
+    this.generateSelectedQuantity(this.totalRoutes);
     this.attachApplyButtonEvents();
   }
 
@@ -186,7 +162,7 @@ export default class CardOffers {
     triggerSelect?.innerHTML = text;
   }
 
-  private generateSelectedQuantity(selected: string[] | number): void {
+  private generateSelectedQuantity(selected: FormattedRoutes | number): void {
     if (typeof selected === 'number') {
       // @ts-ignore
       return (results?.innerHTML = `${selected} ${
@@ -205,12 +181,13 @@ export default class CardOffers {
       button.addEventListener('click', () => {
         const id = parseInt(button.getAttribute('data-route') as string);
         const selected = this.routes.filter((route) => route.id === id)[0];
-        const origin = selected.origin.split(',')[0];
-        const destination = selected.destination.split(',')[0];
+        const origin = selected.origin.split('-')[0];
+        const destination = selected.destination.split('-')[0];
         // @ts-ignore
         titleModal.innerHTML = `${origin} x ${destination}`;
-        // @ts-ignore
+        // @ts-ignore'
         tableDatesBody.innerHTML = '';
+
         selected.availableDates.forEach((dates) => {
           const output = `<tr>${dates
             .map(
@@ -251,7 +228,7 @@ export default class CardOffers {
     this.render(cards);
     this.sortItems(currentSort);
     this.generateCurrentState(selected);
-    this.generateSelectedQuantity(selected);
+    this.generateSelectedQuantity(cards);
     hideFilterOptionsWrapper(true);
   }
 
@@ -279,7 +256,7 @@ export default class CardOffers {
           </div>
           <!-- /.bf-origin-destination -->
           <div class="bf-prices-and-dates">
-              <span>R$ ${route.price}</span>
+              <span>${route.price}</span>
               <button data-route="${route.id}" type="button">Ver datas</button>
           </div>
           <!-- /.bf-prices-and-dates -->
